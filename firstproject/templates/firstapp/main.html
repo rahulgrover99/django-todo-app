@@ -1,0 +1,34 @@
+
+
+<html>
+    <head>
+        <title>My first page</title>
+    </head>
+
+    <body>
+        <h1>Hello World</h1>
+        <p> {{ name }} </p>
+        <p> {{ age }} </p>
+
+        <table style="width:100%; text-align:center">
+        <tr>
+            <th>Index</th>
+            <th>Tv Show</th>
+            <th>IMDb Rating</th>
+        </tr>
+        {% for tv_show,IMDb_rating in tv_shows.items %}
+        {% comment %} {% if IMDb_rating == "8.5"%} {% endcomment %}
+        <tr>
+            <td> <a href="{% url 'string_sth' try1=tv_show %}"> {{forloop.counter}} </a></td>
+            <td>{{tv_show }}</td>
+            <td>{{IMDb_rating}}</td>
+        </tr>
+        {% comment %} {% endif %} {% endcomment %}
+        {% endfor %}
+        </table>
+
+    </body>
+
+
+
+</html>
