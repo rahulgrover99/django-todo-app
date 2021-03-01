@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 # Create your models here.
 
 # Requirements
@@ -33,6 +34,7 @@ class TaskList(models.Model):
     
     name = models.CharField(max_length=50)
     created_at = models.DateTimeField(default=timezone.now)
+    user1 = models.ForeignKey(User, on_delete=models.CASCADE)
    
 
 class Task(models.Model):
@@ -40,7 +42,7 @@ class Task(models.Model):
     created_at = models.DateTimeField(default=timezone.now)
     deadline = models.DateTimeField(blank=True, null=True)
     task_list = models.ForeignKey(TaskList, on_delete=models.CASCADE)
-
+    # user1 = models.ForeignKey(User, on_delete=models.CASCADE)
 
     STATUS_CHOICES = (
         ('P', 'PENDING'),
